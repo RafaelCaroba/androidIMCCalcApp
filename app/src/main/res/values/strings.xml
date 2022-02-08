@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">IMC Calc App</string>
+    <string name="peso">Peso</string>
+    <string name="altura">Altura</string>
+    <string name="valida_peso">Informe o Peso</string>
+    <string name="valida_altura">Informe a altura</string>
+    <string name="calcular">Calcular</string>
+    <string name="limpar">Limpar</string>
+    <string name="magreza_severa">Magreza Severa</string>
+    <string name="magreza">Magreza</string>
+    <string name="peso_adequado">Peso Adequado</string>
+    <string name="sobrepeso">Sobrepeso</string>
+    <string name="obesidade_1">Obesidade Grau I</string>
+    <string name="obesidade_2">Obesidade Grau II</string>
+    <string name="obesidade_severa">Obesidade Severa</string>
+    <string name="resultado">IMC: %1$3.2f</string>
+
+</resources>
