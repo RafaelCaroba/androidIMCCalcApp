@@ -2,10 +2,13 @@ package br.senai.sp.cotia.imccalcapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText editPeso, editAltura;
     private Button btCalcular, btLimpar;
     private TextView tvImc, tvClassificacao;
+    private RadioGroup groupGenero;
+    private Spinner spinnerGenero;
+    private String genero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
         editPeso = findViewById(R.id.edit_peso);
         editAltura = findViewById(R.id.edit_altura);
+
         btCalcular = findViewById(R.id.bt_calcular);
         btLimpar = findViewById(R.id.bt_limpar);
+
         tvImc = findViewById(R.id.tv_imc);
         tvClassificacao = findViewById(R.id.tv_classificacao);
+
+        spinnerGenero = findViewById(R.id.spinner_genero);
+        groupGenero = findViewById(R.id.group_genero);
+
 
         tvImc.setText(" ");
 
@@ -76,6 +88,30 @@ public class MainActivity extends AppCompatActivity {
                     tvClassificacao.setBackgroundColor(getResources().getColor(R.color.purple_700));
                     tvClassificacao.setTextColor(getResources().getColor(R.color.white));
                 }
+
+                //pegar valor selecionado na spinner
+               if (spinnerGenero.getSelectedItemPosition() == 0){
+                    genero = "masculino";
+                } else {
+                   genero = "feminino";
+               }
+
+                //pegar o radio button selecionado
+                switch (groupGenero.getCheckedRadioButtonId()){
+                    case R.id.radio_feminino:
+                        genero = "feminino";
+                    break;
+
+                    case  R.id.radio_masculino:
+                        genero = "masculino";
+                        break;
+                }
+
+               // abrir a ActivityResultado
+                Intent intent = new Intent(this, ResultadoActivity.class);
+               intent.putExtra("imc", imc);
+               intent.putExtra("genero", genero);
+               startActivity(intent);
 
             }
         });

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -26,6 +34,33 @@
         android:layout_height="wrap_content"
         android:id="@+id/edit_altura"
         style="@style/edit_text"/>
+
+    <Spinner
+        android:spinnerMode="dialog"
+        android:entries="@array/array_genero"
+        android:id="@+id/spinner_genero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:id="@+id/group_genero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_masculino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/masculino"/>
+
+        <RadioButton
+            android:id="@+id/radio_feminino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/feminino"/>
+
+    </RadioGroup>
 
     <LinearLayout
         style="@style/estilo_base" >
@@ -60,3 +95,4 @@
 
 
 </LinearLayout>
+</ScrollView>
